@@ -44,6 +44,7 @@
   </feature>
 
   <feature name="kie-spring" version="${project.version}" description="KIE Spring">
+    <feature>aries-blueprint-spring</feature>
     <feature version="${project.version}">kie</feature>
     <feature version="${project.version}">drools-jpa</feature>
     <feature version="${project.version}">jbpm</feature>

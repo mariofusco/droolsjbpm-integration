@@ -275,6 +275,11 @@
         <artifactId>log4j-api</artifactId>
         <version>${karaf.version.org.apache.logging.log4j}</version>
       </dependency>
+      <dependency>
+        <groupId>org.apache.aries.blueprint</groupId>
+        <artifactId>org.apache.aries.blueprint.spring</artifactId>
+        <version>0.6.0</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -705,6 +710,11 @@
     <dependency>
       <groupId>org.springframework.osgi</groupId>
       <artifactId>spring-osgi-extender</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.blueprint</groupId>
+      <artifactId>org.apache.aries.blueprint.spring</artifactId>
       <scope>provided</scope>
     </dependency>
   </dependencies>
