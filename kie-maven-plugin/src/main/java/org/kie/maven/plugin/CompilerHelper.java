@@ -22,9 +22,9 @@ import org.apache.maven.plugin.logging.Log;
 import org.drools.compiler.kie.builder.impl.FileKieModule;
 import org.drools.compiler.kie.builder.impl.InternalKieModule;
 import org.drools.compiler.kie.builder.impl.KieMetaInfoBuilder;
-import org.drools.core.common.ProjectClassLoader;
 import org.drools.core.rule.KieModuleMetaInfo;
 import org.drools.core.rule.TypeMetaInfo;
+import org.drools.reflective.classloader.ProjectClassLoader;
 
 class CompilerHelper {
 
@@ -68,7 +68,7 @@ class CompilerHelper {
     }
 
     public void shareStoreWithMap(ClassLoader classLoader, String compilationID, Map<String, Object> kieMap, Log log) {
-        if (classLoader instanceof ProjectClassLoader) {
+        if (classLoader instanceof ProjectClassLoader ) {
             ProjectClassLoader projectClassloder = (ProjectClassLoader) classLoader;
             Map<String, byte[]> types = projectClassloder.getStore();
             if (projectClassloder.getStore() != null) {

@@ -33,7 +33,6 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
-import org.drools.compiler.compiler.io.Folder;
 import org.drools.compiler.compiler.io.memory.MemoryFile;
 import org.drools.compiler.compiler.io.memory.MemoryFileSystem;
 import org.drools.compiler.kie.builder.impl.InternalKieModule;
@@ -256,11 +255,10 @@ public class GenerateModelMojo extends AbstractKieMojo {
                 for (ModelBuilderImpl modelBuilder : modelBuilders) {
                     ModelWriter.Result result = modelWriter.writeModel(srcMfs, modelBuilder.getPackageModels());
                     modelFiles.addAll(result.getModelFiles());
-                    final Folder sourceFolder = srcMfs.getFolder("src/main/java");
-                    final Folder targetFolder = trgMfs.getFolder(".");
-                    srcMfs.copyFolder(sourceFolder, trgMfs, targetFolder);
                 }
-                modelWriter.writeModelFile(modelFiles, trgMfs);
+                srcMfs.write(PROJECT_MODEL_SOURCE, buildModelSourceClass( modelFiles ).getBytes());
+                srcMfs.copyFolder(srcMfs.getFolder("src/main/java"), trgMfs, trgMfs.getFolder("."));
+                writeModelFile(modelFiles, trgMfs);
             }
         }
     }
