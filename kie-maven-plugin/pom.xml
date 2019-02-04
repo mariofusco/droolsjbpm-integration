@@ -157,11 +157,11 @@
       <artifactId>kie-pmml</artifactId>
       <scope>runtime</scope>
     </dependency>
-    <dependency>
-      <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-bpmn2</artifactId>
-      <scope>runtime</scope>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.jbpm</groupId>-->
+      <!--<artifactId>jbpm-bpmn2</artifactId>-->
+      <!--<scope>runtime</scope>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>org.kie.soup</groupId>
       <artifactId>kie-soup-project-datamodel-api</artifactId>

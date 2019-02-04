@@ -31,10 +31,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import javassist.ClassPool;
+import javassist.CtClass;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -42,15 +43,12 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.drools.core.phreak.ReactiveObject;
 
-import javassist.ClassPool;
-import javassist.CtClass;
-
 @Mojo(name = "injectreactive",
         requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME,
         requiresProject = true,
         defaultPhase = LifecyclePhase.COMPILE)
-@Execute(goal = "injectreactive",
-        phase = LifecyclePhase.COMPILE)
+//@Execute(goal = "injectreactive",
+//        phase = LifecyclePhase.COMPILE)
 public class InjectReactiveMojo extends AbstractKieMojo {
 
     private List<File> sourceSet = new ArrayList<File>();
